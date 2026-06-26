@@ -5,7 +5,27 @@ import java.util.Arrays;
 
 public class Q09_SortThenReverse {
   public int[] sortThenReverse(int[] arr) {
-    // YOUR SOLUTION HERE
+    // sort first
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = i + 1; j < arr.length; j++) {
+        if (arr[i] > arr[j]) {
+          int temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+
+    // reverse
+    int left = 0;
+    int right = arr.length - 1;
+    while (left < right) {
+      int temp = arr[left];
+      arr[left] = arr[right];
+      arr[right] = temp;
+      left++;
+      right--;
+    }
     return arr;
   }
 
