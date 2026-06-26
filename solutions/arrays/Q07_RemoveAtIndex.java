@@ -4,8 +4,14 @@ import java.util.Arrays;
 
 public class Q07_RemoveAtIndex {
   public int[] removeAtIndex(int[] arr, int index) {
-    // YOUR SOLUTION HERE
-    return arr;
+    int[] nums = new int[arr.length];
+    for (int i = 0; i < index; i++) {
+      nums[i] = arr[i];
+    }
+    for (int i = index + 1; i < arr.length; i++) {
+      nums[i - 1] = arr[i];
+    }
+    return nums;
   }
 
   public static void main(String[] args) {
