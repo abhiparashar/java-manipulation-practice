@@ -2,9 +2,17 @@
 
 public class Q06_CountOnesZeros {
   public int[] countOnesZeros(int[] arr) {
-    // YOUR SOLUTION HERE
+    int ones = 0;
+    int zeros = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] == 1) {
+        ones++;
+      } else if (arr[i] == 0) {
+        zeros++;
+      }
+    }
     // return new int[]{ones, zeros}
-    return new int[]{};
+    return new int[] { ones, zeros };
   }
 
   public static void main(String[] args) {

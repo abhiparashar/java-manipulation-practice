@@ -2,8 +2,14 @@
 
 public class Q05_CountGreaterThan4 {
   public int countGreater(int[] arr) {
-    // YOUR SOLUTION HERE
-    return 0;
+    int k = 4;
+    int count = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] > k) {
+        count++;
+      }
+    }
+    return count;
   }
 
   public static void main(String[] args) {
