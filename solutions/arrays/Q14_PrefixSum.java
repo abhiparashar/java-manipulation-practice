@@ -5,7 +5,9 @@ import java.util.Arrays;
 
 public class Q14_PrefixSum {
   public int[] prefixSum(int[] arr) {
-    // YOUR SOLUTION HERE
+    for (int i = 1; i < arr.length; i++) {
+      arr[i] = arr[i - 1] + arr[i];
+    }
     return arr;
   }
 
