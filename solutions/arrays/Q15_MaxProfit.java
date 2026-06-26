@@ -20,10 +20,11 @@ public class Q15_MaxProfit {
     int minSofar = Integer.MAX_VALUE;
     int maxProfit = 0;
     for (int i = 0; i < arr.length; i++) {
-      if (minSofar > arr[i]) {
+      if (minSofar > arr[i]) { //1
         minSofar = arr[i];
       }
       maxProfit = Math.max(maxProfit, arr[i] - minSofar);
+      System.out.println(maxProfit);
     }
     return maxProfit;
   }
