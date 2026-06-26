@@ -3,8 +3,21 @@
 
 public class Q12_ClosestToAverage {
   public int closestToAverage(int[] arr) {
-    // YOUR SOLUTION HERE
-    return -1;
+    double sum = 0;
+    for (int i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    double avg = sum / arr.length;
+    double minDiff = Integer.MAX_VALUE;
+    int closestElement = arr[0];
+    for (int i = 0; i < arr.length; i++) {
+      double diff = Math.abs(avg - arr[i]);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestElement = arr[i];
+      }
+    }
+    return closestElement;
   }
 
   public static void main(String[] args) {

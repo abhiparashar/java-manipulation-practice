@@ -5,8 +5,16 @@ import java.util.Arrays;
 
 public class Q11_SplitArray {
   public int[][] splitArray(int[] arr) {
-    // YOUR SOLUTION HERE
-    return new int[][]{};
+    int mid = (arr.length + 1) / 2;
+    int[] firstHalf = new int[mid];
+    int[] secondHalf = new int[arr.length - mid];
+    for (int i = 0; i < mid; i++) {
+      firstHalf[i] = arr[i];
+    }
+    for (int i = mid; i < arr.length; i++) {
+      secondHalf[i - mid] = arr[i];
+    }
+    return new int[][] { firstHalf, secondHalf };
   }
 
   public static void main(String[] args) {
