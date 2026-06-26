@@ -2,9 +2,17 @@
 
 public class Q03_MaxMin {
   public int[] maxMin(int[] arr) {
-    // YOUR SOLUTION HERE
-    // return new int[]{max, min}
-    return new int[]{};
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+    for (int i = 0; i < arr.length; i++) {
+      if (max < arr[i]) {
+        max = arr[i];
+      }
+      if (min > arr[i]) {
+        min = arr[i];
+      }
+    }
+    return new int[] { max, min };
   }
 
   public static void main(String[] args) {
