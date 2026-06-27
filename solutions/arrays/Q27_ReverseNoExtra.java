@@ -5,7 +5,15 @@ import java.util.Arrays;
 
 public class Q27_ReverseNoExtra {
   public int[] reverse(int[] arr) {
-    // YOUR SOLUTION HERE
+    int left = 0;
+    int right = arr.length - 1;
+    while (left < right) {
+      int temp = arr[left];
+      arr[left] = arr[right];
+      arr[right] = temp;
+      left++;
+      right--;
+    }
     return arr;
   }
 
