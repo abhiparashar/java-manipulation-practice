@@ -1,14 +1,32 @@
-// Q24: [1,2,1,3,2,1,4,2], window size=3
-// For each window of size 3, find most frequent element
-// Tie-breaking rule: return first element with max frequency
-// → [1, tie, tie, tie, tie, tie]
-
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q24_SlidingWindowFrequency {
   public int[] slidingWindowFrequency(int[] arr, int k) {
-    // YOUR SOLUTION HERE
-    return new int[]{};
+    int[] result = new int[arr.length - k + 1];
+
+    for (int i = 0; i <= arr.length - k; i++) {
+      // count frequency of current window
+      Map<Integer, Integer> map = new HashMap<>();
+      for (int j = i; j < i + k; j++) {
+        map.put(arr[j], map.getOrDefault(arr[j], 0) + 1);
+      }
+
+      // find element with max frequency (tie: first element wins)
+      int maxCount = 0;
+      int maxElem = arr[i];
+      for (int j = i; j < i + k; j++) {
+        if (map.get(arr[j]) > maxCount) {
+          maxCount = map.get(arr[j]);
+          maxElem = arr[j];
+        }
+      }
+
+      result[i] = maxElem;
+    }
+
+    return result;
   }
 
   public static void main(String[] args) {

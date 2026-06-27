@@ -3,8 +3,17 @@
 
 public class Q28_SecondLargestNoSort {
   public int secondLargest(int[] arr) {
-    // YOUR SOLUTION HERE
-    return -1;
+    int largest = Integer.MIN_VALUE;
+    int secondLargest = Integer.MIN_VALUE;
+    for (int i = 0; i < arr.length; i++) {
+      if (largest < arr[i]) {
+        secondLargest = largest;
+        largest = arr[i];
+      } else if (secondLargest < arr[i]) {
+        secondLargest = arr[i];
+      }
+    }
+    return secondLargest;
   }
 
   public static void main(String[] args) {
