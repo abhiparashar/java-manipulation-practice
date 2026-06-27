@@ -2,11 +2,35 @@
 // Step 1: Find 3rd smallest WITHOUT full sort
 // Step 2: Count elements strictly greater than it → 7
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Q19_ThirdSmallest {
   public int[] thirdSmallest(int[] arr) {
-    // YOUR SOLUTION HERE
+    int smallest = Integer.MAX_VALUE;
+    int secondSmallest = Integer.MAX_VALUE;
+    int thirdSmallest = Integer.MAX_VALUE;
+    for (int i = 0; i < arr.length; i++) {
+      if (smallest > arr[i]) {
+        thirdSmallest = secondSmallest;
+        secondSmallest = smallest;
+        smallest = arr[i];
+      } else if (secondSmallest > arr[i]) {
+        thirdSmallest = secondSmallest;
+        secondSmallest = arr[i];
+      } else if (thirdSmallest > arr[i]) {
+        thirdSmallest = arr[i];
+      }
+    }
+    int count = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] > thirdSmallest) {
+        count++;
+      }
+    }
     // return new int[]{thirdSmallest, countGreater}
-    return new int[]{};
+    return new int[] { thirdSmallest, count };
+
   }
 
   public static void main(String[] args) {
